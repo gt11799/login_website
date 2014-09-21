@@ -46,7 +46,7 @@ class ZhihuSpider(object):
     def store_name(self):
         
         #initial mysql
-        self.db = MySQLdb.connect(host="localhost", port=3307, user='root', passwd='chrdw', db='zhihu')
+        self.db = MySQLdb.connect(host="localhost", port=3307, user='user', passwd='passwd', db='zhihu')
         self.cursor = self.db.cursor()
         for item in range(len(self.times)):
             sql = "insert into login_time (name,login_time) values (%r,%r)"\
