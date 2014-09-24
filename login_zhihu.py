@@ -49,8 +49,8 @@ class ZhihuSpider(object):
         self.db = MySQLdb.connect(host="localhost", port=3307, user='user', passwd='passwd', db='zhihu')
         self.cursor = self.db.cursor()
         for item in range(len(self.times)):
-            sql = "insert into login_time (name,login_time) values (%r,%r)"\
-                %(self.names[item].encode('raw_unicode_escape'), self.times[item])
+            sql = 'insert into login_time (name,login_time) values ("%s","%s")'\
+                %(self.names[item].encode('utf8'), self.times[item])
   
             self.cursor.execute(sql)
             
